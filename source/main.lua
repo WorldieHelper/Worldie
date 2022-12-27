@@ -5,7 +5,7 @@ if not Worldie then
         Worldie.AutoSell = {
             "TreeTopStar",
             "GingerbreadPajamas",
-            "Hairbow",
+            "HairBow",
             "SantaBeard",
             "SnowflakePajamas"
         }
@@ -24,12 +24,17 @@ if not Worldie then
     if not Worldie.AutoSpin then
         Worldie.AutoSpin = {
             Enabled = false,
-            Cooldown = 1
+            Cooldown = 1,
+            MaxSpins = 0 --> Placeholder
         }
+    end
+
+    if not Worldie.SellCurrentItems then
+        Worldie.SellCurrentItems = false
     end
 end
 
-local Version = "0.1.2"
+local Version = "0.1.3"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -57,6 +62,7 @@ local function printi(...) rconsoleinfo("[Worldie]: " .. ...) end
 
 local function SellItem(Item)
     assert(typeof(Item) == "Instance", "We had a fuckup on our end!") --> Check if Item is actually an item
+    printc("Selling '" .. Item.Name .. "'")
     game:GetService("ReplicatedStorage").Shared.Drops.SellItems:InvokeServer({ [1] = Item }) --> Bye Bye Item!!! :)
 end
 
@@ -69,7 +75,7 @@ function CheckingEvent(child)
 
     if (table.find(Worldie.AutoSell, ItemName) ~= nil) then
         if (child:FindFirstChild("Dye") and child.Dye:IsA("Color3Value")) then
-            if table.find(Settings.Colors, string.lower(tostring(child.Dye.Value:ToHex()))) ~= nil then
+            if table.find(Worldie.Colors, string.lower(tostring(child.Dye.Value:ToHex()))) ~= nil then
                 printc("Found '" .. ItemName .. "' | Color: " .. string.lower(tostring(child.Dye.Value:ToHex())))
                 return
             end
@@ -80,6 +86,12 @@ function CheckingEvent(child)
 
         SellItem(child)
         return
+    end
+end
+
+if Worldie.SellCurrentItems == true then
+    for _,child in pairs(Cosmetics:GetChildren()) do
+        CheckingEvent(child)
     end
 end
 
