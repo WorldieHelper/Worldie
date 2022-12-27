@@ -1,5 +1,7 @@
 # Worldie
 
+### [**Join the Discord Here!**](https://discord.gg/PJJnMKAVpd)
+
 A Helper for World // Zero, created out of nessessity. 
 
 * Current Version: UNRELEASED
