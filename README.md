@@ -23,7 +23,9 @@ getgenv().Worldie = {
         "ffffff",
         "ff0000",
         "008000",
-        "0000ff"
+        "0000ff",
+        "e5e5e5",
+        "1d1d1d"
     },
     AutoSpin = {
         Enabled = true,
