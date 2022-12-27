@@ -1,6 +1,7 @@
 {
     "robloxLsp.diagnostics.globals": [
         "rconsoleclear",
-        "rconsolename"
+        "rconsolename",
+        "rconsoleprint"
     ]
 }
