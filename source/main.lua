@@ -1,20 +1,23 @@
-getgenv().Worldie = {
-    AutoSell = {
-        "TreeTopStar",
-        "GingerbreadPajamas",
-        "Hairbow",
-        "SantaBeard"
-    },
-    Colors = {
-        "000000",
-        "ffffff",
-        "ff0000",
-        "008000",
-        "0000ff"
+if not Worldie then
+    getgenv().Worldie = {
+        AutoSell = {
+            "TreeTopStar",
+            "GingerbreadPajamas",
+            "Hairbow",
+            "SantaBeard",
+            "SnowflakePajamas"
+        },
+        Colors = {
+            "000000",
+            "ffffff",
+            "ff0000",
+            "008000",
+            "0000ff"
+        }
     }
-}
+end
 
-local Version = "0.1.0"
+local Version = "0.1.1"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
