@@ -5,6 +5,10 @@
         "rconsoleprint",
         "rconsoleerr",
         "rconsolewarn",
-        "rconsoleinfo"
+        "rconsoleinfo",
+        "getgenv",
+        "Settings",
+        "WorldieSettings",
+        "Worldie"
     ]
 }
