@@ -42,7 +42,6 @@ local function printi(...) rconsoleinfo("[Worldie]: " .. ...) end
 
 local function SellItem(Item)
     assert(typeof(Item) == "Instance", "We had a fuckup on our end!") --> Check if Item is actually an item
-    printi("Selling '" .. Item.Name .. "'")
     game:GetService("ReplicatedStorage").Shared.Drops.SellItems:InvokeServer({ [1] = Item }) --> Bye Bye Item!!! :)
 end
 
@@ -52,7 +51,7 @@ function CheckingEvent(child)
     if (table.find(Worldie.AutoSell, ItemName) ~= nil) then
         if (child:FindFirstChild("Dye") and child.Dye:IsA("Color3Value")) then
             if table.find(Settings.Colors, string.lower(tostring(child.Dye.Value:ToHex()))) ~= nil then
-                printi("Found '" .. ItemName .. "' | Color: " .. string.lower(tostring(child.Dye.Value:ToHex())))
+                printc("Found '" .. ItemName .. "' | Color: " .. string.lower(tostring(child.Dye.Value:ToHex())))
                 return
             end
 
