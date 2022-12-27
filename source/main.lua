@@ -7,6 +7,10 @@ local Name = LocalPlayer.Name
 repeat
     task.wait()
 until game:IsLoaded()
+
+rconsoleclear()
+rconsolename("Worldie")
+
 local Shared = ReplicatedStorage:WaitForChild("Shared")
 local EventSpinner = Shared:FindFirstChild("EventSpinner")
 
