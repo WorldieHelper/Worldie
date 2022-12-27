@@ -4,7 +4,7 @@
 
 A Helper for World // Zero, created out of nessessity. 
 
-* Current Version: 0.1.1
+* Current Version: 0.1.2
 * Last Update: 12/26/2022
 
 # Contributors

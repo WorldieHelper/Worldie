@@ -1,20 +1,32 @@
 if not Worldie then
-    getgenv().Worldie = {
-        AutoSell = {
+    getgenv().Worldie = {}
+
+    if not Worldie.AutoSell then
+        Worldie.AutoSell = {
             "TreeTopStar",
             "GingerbreadPajamas",
             "Hairbow",
             "SantaBeard",
             "SnowflakePajamas"
-        },
-        Colors = {
+        }
+    end
+
+    if not Worldie.Colors then
+        Worldie.Colors = {
             "000000",
             "ffffff",
             "ff0000",
             "008000",
             "0000ff"
         }
-    }
+    end
+
+    if not Worldie.AutoSpin then
+        Worldie.AutoSpin = {
+            Enabled = false,
+            Cooldown = 1
+        }
+    end
 end
 
 local Version = "0.1.1"
@@ -48,6 +60,10 @@ local function SellItem(Item)
     game:GetService("ReplicatedStorage").Shared.Drops.SellItems:InvokeServer({ [1] = Item }) --> Bye Bye Item!!! :)
 end
 
+local function SpinWheel()
+    EventSpinner.JoinQueue:FireServer(LocalPlayer.Name)
+end
+
 function CheckingEvent(child)
     local ItemName = child.Name
 
@@ -66,6 +82,13 @@ function CheckingEvent(child)
         return
     end
 end
+
+task.spawn(function()
+    while AutoSpin.Enabled do
+        SpinWheel()
+        task.wait(AutoSpin.Cooldown)
+    end
+end)
 
 Items.ChildAdded:Connect(CheckingEvent)
 Cosmetics.ChildAdded:Connect(CheckingEvent)
