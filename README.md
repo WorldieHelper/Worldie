@@ -7,5 +7,4 @@ A Helper for World // Zero, created out of nessessity.
 
 # Contributors
 
-* **
 * **Grizzly** - Made the Discord Server
