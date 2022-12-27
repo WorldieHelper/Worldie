@@ -86,7 +86,7 @@ end
 task.spawn(function()
     while Worldie.AutoSpin.Enabled do
         SpinWheel()
-        task.wait(AutoSpin.Cooldown)
+        task.wait(Worldie.AutoSpin.Cooldown)
     end
 end)
 
