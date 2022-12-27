@@ -2,6 +2,11 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local Name = LocalPlayer.Name
+
+--> Wait for Game to load
+repeat
+    task.wait()
+until game:IsLoaded()
 local Shared = ReplicatedStorage:WaitForChild("Shared")
 local EventSpinner = Shared:FindFirstChild("EventSpinner")
 
