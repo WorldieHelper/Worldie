@@ -80,6 +80,8 @@ local function SpinWheel()
 end
 
 local function BankItem(Item)
+    assert(typeof(Item) == "Instance", "We had a fuckup on our end!") --> Check if Item is actually an item
+    printi("Banking item '" .. Item.Name)
     game:GetService("ReplicatedStorage").Shared.Bank.TransferToBank:FireServer(Item, 1)
 end
 
