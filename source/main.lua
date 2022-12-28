@@ -44,7 +44,7 @@ if not Worldie then
     end
 end
 
-local Version = "0.1.3"
+local Version = "0.1.4"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
