@@ -11,6 +11,9 @@ A Helper for World // Zero, created out of nessessity.
 
 ```lua
 getgenv().Worldie = {
+    AutoBank = {
+        "ChristmasEgg"
+    },
     AutoSell = {
         "TreeTopStar",
         "GingerbreadPajamas",

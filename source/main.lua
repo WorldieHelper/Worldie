@@ -17,10 +17,11 @@ if not Worldie then
             "ffffff",
             "ff0000",
             "008000",
-            "0000ff"
             "0000ff",
             "1e1e1e",
-            "e6e6e6"
+            "e6e6e6",
+            "e5e5e5",
+            "1d1d1d"
         }
     end
 
