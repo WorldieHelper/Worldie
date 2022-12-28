@@ -72,7 +72,6 @@ local function printi(...) rconsoleinfo("[Worldie]: " .. ...) end
 
 local function SellItem(Item)
     assert(typeof(Item) == "Instance", "We had a fuckup on our end!") --> Check if Item is actually an item
-    printc("Selling '" .. Item.Name .. "'")
     game:GetService("ReplicatedStorage").Shared.Drops.SellItems:InvokeServer({ [1] = Item }) --> Bye Bye Item!!! :)
 end
 
