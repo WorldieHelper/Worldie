@@ -35,6 +35,12 @@ if not Worldie then
     if not Worldie.SellCurrentItems then
         Worldie.SellCurrentItems = false
     end
+
+    if not Worldie.AutoBank then
+        Worldie.AutoBank = {
+            "ChristmasEgg"
+        }
+    end
 end
 
 local Version = "0.1.3"
@@ -73,10 +79,16 @@ local function SpinWheel()
     EventSpinner.JoinQueue:FireServer(LocalPlayer.Name)
 end
 
+local function BankItem(Item)
+    game:GetService("ReplicatedStorage").Shared.Bank.TransferToBank:FireServer(Item, 1)
+end
+
 function CheckingEvent(child)
     local ItemName = child.Name
 
-    if (table.find(Worldie.AutoSell, ItemName) ~= nil) then
+    if (table.find(Worldie.AutoBank, ItemName)) then
+        BankItem(child)
+    elseif (table.find(Worldie.AutoSell, ItemName) ~= nil) then
         if (child:FindFirstChild("Dye") and child.Dye:IsA("Color3Value")) then
             if table.find(Worldie.Colors, string.lower(tostring(child.Dye.Value:ToHex()))) ~= nil then
                 printc("Found '" .. ItemName .. "' | Color: " .. string.lower(tostring(child.Dye.Value:ToHex())))
